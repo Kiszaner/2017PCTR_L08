@@ -2,7 +2,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 //TODO Transform the code to be used safely in a concurrent context.  
 public class Ball {
-       //TODO  Find an archive named Ball.png 
+
 	private String Ball = "./rsc/Ball.png";
 
 	private double x,y,dx,dy;
@@ -28,7 +28,8 @@ public class Ball {
 		}
 		x += dx;   
 		y += dy;
-		//TODO Check postcondition
+
+		assert isInsideBoard(x, y) : "Out of the Board";
 	}
 
 	public void reflect() {
@@ -44,7 +45,8 @@ public class Ball {
 		if (Math.abs(y - Board.TOPBOARD) <  Math.abs(dy)) {
 			fi = - fi;
 		}
-		//TODO Check postcondition	
+
+        assert isInsideBoard(x, y) : "Out of the Board";
 	}
 
 	public int getX() {
@@ -75,5 +77,8 @@ public class Ball {
 		return image;
 	}
 
+	private boolean isInsideBoard(double x, double y){
+		return x > Board.LEFTBOARD && x < Board.RIGHTBOARD && y > Board.TOPBOARD && y < Board.BOTTOMBOARD;
+	}
 }
 
