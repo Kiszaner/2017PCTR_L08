@@ -8,7 +8,7 @@ import javax.swing.ImageIcon;
 public class Ball
 {
 
-    private String Ball = "./rsc/Ball.png";
+    private String Ball = "./Ball.png";
 
     private double x, y, dx, dy;
     private double v, fi;

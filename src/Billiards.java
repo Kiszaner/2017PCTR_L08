@@ -86,20 +86,12 @@ public class Billiards extends JFrame
                 ballThreads = new Thread[N_BALL];
                 for (int i = 0; i < N_BALL; i++)
                 {
+                    System.out.println("Initializing ball " + i + "...");
                     ballThreads[i] = new Thread(new BallThread(balls[i], board));
                     ballThreads[i].start();
                 }
             }
-            else
-            {
-                for (Thread ballThread : ballThreads)
-                {
-                    ballThread.start();
-                }
-            }
         }
-
-
     }
 
     /**
