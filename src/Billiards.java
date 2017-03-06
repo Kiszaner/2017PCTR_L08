@@ -83,6 +83,7 @@ public class Billiards extends JFrame
         {
             if (ballThreads == null)
             {
+                board.setBalls(balls);
                 ballThreads = new Thread[N_BALL];
                 for (int i = 0; i < N_BALL; i++)
                 {
