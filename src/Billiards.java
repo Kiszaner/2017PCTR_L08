@@ -90,6 +90,13 @@ public class Billiards extends JFrame
                     ballThreads[i].start();
                 }
             }
+            else
+            {
+                for (Thread ballThread : ballThreads)
+                {
+                    ballThread.start();
+                }
+            }
         }
 
 
@@ -103,7 +110,17 @@ public class Billiards extends JFrame
         @Override
         public void actionPerformed(ActionEvent arg0)
         {
-            // TODO Code is executed when stop button is pushed
+            if (ballThreads == null)
+            {
+                System.out.println("No balls to stop.");
+            }
+            else
+            {
+                for (Thread ballThread : ballThreads)
+                {
+                    ballThread.interrupt();
+                }
+            }
 
         }
     }
